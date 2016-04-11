@@ -2,7 +2,7 @@ package idp.web;
 
 import idp.saml.SAMLAuthnFilter;
 import idp.saml.SAMLMessageHandler;
-import idp.security.BioMetricAuthenticationProvider;
+import idp.security.UsernamePasswordAuthenticationProvider;
 import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.runtime.RuntimeConstants;
 import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
@@ -44,7 +44,7 @@ public class WebSecurityConfigurer {
   @Autowired
   public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
     //because Autowired this will end up in the global ProviderManager
-    auth.authenticationProvider(new BioMetricAuthenticationProvider());
+    auth.authenticationProvider(new UsernamePasswordAuthenticationProvider());
   }
 
   @Configuration
